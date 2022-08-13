@@ -89,11 +89,11 @@ public class Schedule {
 //				+ payrollAmount + ", grossMargin=" + grossMargin + "]";
 //	}
 
-	public String getstreet() {
+	public String getStreet() {
 		return street;
 	}
 
-	public void setstreet(String street) {
+	public void setStreet(String street) {
 		this.street = street;
 	}
 

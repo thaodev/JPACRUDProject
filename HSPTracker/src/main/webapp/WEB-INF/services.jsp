@@ -11,10 +11,14 @@
 <jsp:include page="../navbar.jsp"></jsp:include>
 </head>
 <body>
-	
-	<div class="float-right">
-	<a href="getServiceDetails.do" class="btn btn-primary active" role="button" aria-pressed="true">Show Service Details</a>
+
+	<div class="row">
+		<div class=" col-md-12 text-center">
+			<a href="getServiceDetails.do" class="btn btn-info"
+				role="button" aria-pressed="true">Show Service Details</a>
+		</div>
 	</div>
+	Ï
 
 	<table class="table table-striped">
 		<thead>
@@ -29,17 +33,17 @@
 			</tr>
 		</thead>
 		<tbody>
-	<c:forEach var="schedule" items="${schedules}">
-			<tr>
-				<td>${schedule.serviceDate}</td>
-				<td><c:out value="${schedule.client}" /></td>
-				<td><c:out value="${schedule.nurse}" /></td>
-				<td><c:out value="${schedule.employmentType}" /></td>
-				<td><c:out value="${schedule.billStatus}" /></td>
-				<td><c:out value="${schedule.serviceType}" /></td>
+			<c:forEach var="schedule" items="${schedules}">
+				<tr>
+					<td>${schedule.serviceDate}</td>
+					<td><c:out value="${schedule.client}" /></td>
+					<td><c:out value="${schedule.nurse}" /></td>
+					<td><c:out value="${schedule.employmentType}" /></td>
+					<td><c:out value="${schedule.billStatus}" /></td>
+					<td><c:out value="${schedule.serviceType}" /></td>
 
-			</tr>
-</c:forEach>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 	<jsp:include page="../bootstrapFoot.jsp"></jsp:include>

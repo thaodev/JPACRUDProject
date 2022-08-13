@@ -27,27 +27,61 @@
 				<th scope="col">Bill Amount</th>
 				<th scope="col">Payroll Amount</th>
 				<th scope="col">Gross Margin</th>
+				<th scope="col">Action</th>
 			</tr>
 		</thead>
 		<tbody>
-	<c:forEach var="schedule" items="${schedules}">
-			<tr>
-				<td>${schedule.serviceDate}</td>
-				<td><c:out value="${schedule.client}" /></td>
-				<td><c:out value="${schedule.street}" /></td>
-				<td><c:out value="${schedule.city}" /></td>
-				<td><c:out value="${schedule.nurse}" /></td>
-				<td><c:out value="${schedule.serviceType}" /></td>
-				<td><c:out value="${schedule.employmentType}" /></td>
-				<td><c:out value="${schedule.billStatus}" /></td>
-				<td><c:out value="${schedule.billAmount}" /></td>
-				<td><c:out value="${schedule.payrollAmount}" /></td>
-				<td><c:out value="${schedule.grossMargin}" /></td>
+			<c:forEach var="schedule" items="${schedules}">
+				<tr>
+					<td>${schedule.serviceDate}</td>
+					<td><c:out value="${schedule.client}" /></td>
+					<td><c:if test="${schedule.street != null}" ><c:out value="${schedule.street}" /></c:if></td>
+					<td><c:out value="${schedule.city}" /></td>
+					<td><c:out value="${schedule.nurse}" /></td>
+					<td><c:out value="${schedule.serviceType}" /></td>
+					<td><c:out value="${schedule.employmentType}" /></td>
+					<td><c:out value="${schedule.billStatus}" /></td>
+					<td><c:if test="${schedule.billAmount != null}" ><c:out value="${schedule.billAmount}" /></c:if></td>
+					<td><c:out value="${schedule.payrollAmount}" /></td>
+					<td><c:if test ="${count > 0}" /><c:out value="${schedule.grossMargin}" /></td>
+					<td><a href="updateSchedule.do">Update</a>|<a
+						href="delete.do?sid=${schedule.id}">Delete</a></td>
 
-			</tr>
-</c:forEach>
+
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
+<div class="text-center d-flex flex-row float-right ">
+		<div style="margin-right: 10px">
+			<a href="addService.do" class="btn btn-info" role="button"
+				aria-pressed="true">Add Service</a>
+		</div>
+		<div style="margin-right: 10px">
+			<a href="calculateMargin.do" class="btn btn-info" role="button"
+				aria-pressed="true">Calculate Margin</a>
+		</div>
+	</div> 
+
+	<%-- <div class="col-sm text-center d-flex flex-row float-none" class="mr-3">
+		<div style="margin-right: 10px">
+			<form action="addService.jsp" method="POST">
+				<input type="hidden" name="filmId"
+					value="<c:out value="${film.id }"/>" />
+				<button type="submit" class="btn btn-info mr-5">Add a Service</button>
+			</form>
+		</div>
+		<div>
+			<input type="hidden" />
+		</div>
+		<div>
+			<form action="presentFilmForUpdate.do" method="GET">
+				<input type="hidden" name="filmId"
+					value="<c:out value="${film.id }"/>" />
+				<button type="submit" class="btn btn-info mx-auto">Calculate Margin</button>
+			</form>
+		</div>
+	</div> --%>
 	<jsp:include page="../bootstrapFoot.jsp"></jsp:include>
 
 </body>
