@@ -8,4 +8,5 @@ public interface HspTrackerDAO {
 
 	Schedule findById(int id);
 	List<Schedule> findAll();
+	
 }

@@ -26,7 +26,12 @@ public class HspTrackerDAOImpl implements HspTrackerDAO {
 
 	@Override
 	public List<Schedule> findAll() {
-		// TODO Auto-generated method stub
+		String jpql = "SELECT s FROM Schedule s";
+		List<Schedule> schedules = em.createQuery(jpql, Schedule.class).getResultList();
+		if(schedules != null) {
+			return schedules;
+		}
+		System.out.println(schedules);
 		return null;
 	}
 
