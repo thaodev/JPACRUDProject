@@ -37,7 +37,7 @@ public class ScheduleController {
 		
 		model.addAttribute("schedules",schedules);
 		
-		return "services";
+		return "servicesDetails";
 	}
 
 }

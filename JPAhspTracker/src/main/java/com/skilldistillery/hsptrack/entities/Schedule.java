@@ -21,7 +21,7 @@ public class Schedule {
 	private String client;
 	
 	@Column(name="client_address")
-	private String address;
+	private String street;
 	
 	@Column(name="client_city")
 	private String city;
@@ -83,18 +83,18 @@ public class Schedule {
 //
 //	@Override
 //	public String toString() {
-//		return "Schedule [id=" + id + ", client=" + client + ", address=" + address + ", city=" + city
+//		return "Schedule [id=" + id + ", client=" + client + ", street=" + street + ", city=" + city
 //				+ ", nurseFirstName=" + nurseFirstName + ", nurseLastName=" + nurseLastName + ", employmentType="
 //				+ employmentType + ", serviceType=" + serviceType + ", billAmount=" + billAmount + ", payrollAmount="
 //				+ payrollAmount + ", grossMargin=" + grossMargin + "]";
 //	}
 
-	public String getAddress() {
-		return address;
+	public String getstreet() {
+		return street;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setstreet(String street) {
+		this.street = street;
 	}
 
 	public String getCity() {
@@ -177,7 +177,7 @@ public class Schedule {
 	}
 
 	public String toStringDetails() {
-		return "Schedule [id=" + id + ", client=" + client + ", address=" + address + ", city=" + city + ", nurse="
+		return "Schedule [id=" + id + ", client=" + client + ", street=" + street + ", city=" + city + ", nurse="
 				+ nurse + ", employmentType=" + employmentType + ", serviceType=" + serviceType + ", billStatus="
 				+ billStatus + ", billAmount=" + billAmount + ", payrollAmount=" + payrollAmount + ", grossMargin="
 				+ grossMargin + ", serviceDate=" + serviceDate + "]";

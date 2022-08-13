@@ -11,6 +11,10 @@
 <jsp:include page="../navbar.jsp"></jsp:include>
 </head>
 <body>
+	
+	<div class="float-right">
+	<a href="getServiceDetails.do" class="btn btn-primary active" role="button" aria-pressed="true">Show Service Details</a>
+	</div>
 
 	<table class="table table-striped">
 		<thead>

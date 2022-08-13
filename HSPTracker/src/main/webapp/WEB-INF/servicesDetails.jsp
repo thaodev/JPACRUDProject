@@ -18,21 +18,31 @@
 			<tr>
 				<th scope="col">Service Date</th>
 				<th scope="col">Client</th>
+				<th scope="col">Client Street Address</th>
+				<th scope="col">Client City</th>
 				<th scope="col">Service Provider</th>
+				<th scope="col">Service Type</th>
 				<th scope="col">Employment Type</th>
 				<th scope="col">Bill Status</th>
-				<th scope="col">Service Type</th>
+				<th scope="col">Bill Amount</th>
+				<th scope="col">Payroll Amount</th>
+				<th scope="col">Gross Margin</th>
 			</tr>
 		</thead>
 		<tbody>
 	<c:forEach var="schedule" items="${schedules}">
 			<tr>
-				<td><${schedule.serviceDate}</td>
+				<td>${schedule.serviceDate}</td>
 				<td><c:out value="${schedule.client}" /></td>
+				<td><c:out value="${schedule.street}" /></td>
+				<td><c:out value="${schedule.city}" /></td>
 				<td><c:out value="${schedule.nurse}" /></td>
+				<td><c:out value="${schedule.serviceType}" /></td>
 				<td><c:out value="${schedule.employmentType}" /></td>
 				<td><c:out value="${schedule.billStatus}" /></td>
-				<td><c:out value="${schedule.serviceType}" /></td>
+				<td><c:out value="${schedule.billAmount}" /></td>
+				<td><c:out value="${schedule.payrollAmount}" /></td>
+				<td><c:out value="${schedule.grossMargin}" /></td>
 
 			</tr>
 </c:forEach>
