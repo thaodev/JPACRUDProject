@@ -19,7 +19,9 @@
 		</div>
 	</div> -->
 	
-
+<div class="text-center">
+		<h3>SCHEDULE SUMMARY</h3>
+	</div>
 	<table class="table table-striped">
 		<thead>
 
@@ -46,6 +48,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+
 	<jsp:include page="../bootstrapFoot.jsp"></jsp:include>
 
 </body>

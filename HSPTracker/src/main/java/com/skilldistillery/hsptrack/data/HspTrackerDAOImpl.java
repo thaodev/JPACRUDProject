@@ -114,30 +114,61 @@ public class HspTrackerDAOImpl implements HspTrackerDAO {
 		
 		return isDeleted;
 	}
-
+	
+	
 	@Override
-	public void findRevenueByCity() {
-		// TODO Auto-generated method stub
+	public List<Object[]> findKPIsByCity() {
+		List<Object[]> schedules = null;
+//		String jpql="SELECT s.city, service2.avg from Schedule s INNER JOIN "
+//				+ "(SELECT sc.city city2,  AVG(sc.grossMargin) avg from Schedule sc GROUP BY sc.city) service2 "
+//				+ "ON s.city = service2.city2";
 		
+		String jpql = "SELECT s.city, SUM(s.billAmount), SUM(s.payrollAmount), AVG(s.grossMargin) FROM Schedule s GROUP BY s.city";
+		//"SELECT distinct s.serviceType, service2.rev, service2.cogs, service2.avgGM from Schedule s INNER JOIN "
+		//+ "(SELECT sc.serviceType serT, SUM(billAmount) rev, SUM(payrollAmount) cogs, AVG(sc.grossMargin) avgGM FROM Schedule sc GROUP BY sc.serviceType) service2"
+		//+ " ON s.serviceType = service2.serT"
+		//"SELECT distinct s.service_type,service2.rev, service2.COGS, service2.avg from service s INNER JOIN (SELECT sc.service_type service2, SUM(bill_amount) rev, SUM(payroll_amount) COGS, AVG(sc.gross_margin) avg from service sc GROUP BY sc.service_type) service2 ON s.service_type = service2.service2;";
+		schedules = em.createQuery(jpql, Object[].class).getResultList();
+		return schedules;		
+	}
+	@Override
+	public List<Object[]>  findKPIsByService() {
+		List<Object[]> schedules = null;
+		String jpql="SELECT s.serviceType, SUM(s.billAmount), SUM(s.payrollAmount), AVG(s.grossMargin)"
+				+ " FROM Schedule s GROUP BY s.serviceType";
+		schedules = em.createQuery(jpql, Object[].class).getResultList();
+		return schedules;		
 	}
 
-	@Override
-	public void findAvgGMByCity() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
-	public List<Schedule> findNegativeGM() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Object[]> findKPIsByEmploymentType() {
+		List<Object[]> schedules = null;
+		String jpql="SELECT s.employmentType, SUM(s.billAmount), SUM(s.payrollAmount), AVG(s.grossMargin)"
+				+ " FROM Schedule s GROUP BY s.employmentType";
+		schedules = em.createQuery(jpql, Object[].class).getResultList();
+		return schedules;		
 	}
 
 	@Override
 	public List<Schedule> findNotBilledSchedule() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Schedule> schedules = null;
+		String jpql="SELECT s FROM Schedule s WHERE s.billStatus  = 0";
+		schedules = em.createQuery(jpql, Schedule.class).getResultList();
+		
+		return schedules;
 	}
+
+
+	@Override
+	public List<Schedule> findLowGM() {
+		List<Schedule> schedules = null;
+		String jpql="SELECT s FROM Schedule s WHERE s.grossMargin < 0.3";
+		schedules = em.createQuery(jpql, Schedule.class).getResultList();
+		
+		return schedules;
+	}
+
 
 
 }

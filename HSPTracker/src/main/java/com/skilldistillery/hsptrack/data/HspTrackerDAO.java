@@ -12,9 +12,10 @@ public interface HspTrackerDAO {
 	boolean updateSchedule(Schedule schedule);
 	int calculateGrossMargin();
 	boolean deleteSchedule(int scheduleId);
-	void findRevenueByCity();
-	void findAvgGMByCity();
-	List<Schedule> findNegativeGM();
+	List<Object[]>  findKPIsByCity();
+	List<Object[]>  findKPIsByService();
+	List<Object[]>  findKPIsByEmploymentType();
 	List<Schedule> findNotBilledSchedule();
+	List<Schedule> findLowGM();
 	
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -12,10 +13,14 @@
 </head>
 <body>
 <div class="container-fluid">
-	<table class="table table-striped">
+	<div class="text-center">
+		<h3>SCHEDULE MASTER</h3>
+	</div>
+	<table class="table table-striped ">
+
 		<thead>
 
-			<tr>
+			<tr class="table-success">
 				<th scope="col">Service Date</th>
 				<th scope="col">Client</th>
 				<th scope="col">Client Street Address</th>
@@ -40,9 +45,6 @@
 			<c:url var="deleteLink" value="deleteSchedule">
 				<c:param name="id" value = "${schedule.id}"/>
 			</c:url>
-			
-			
-			
 				<tr>
 					<td>${schedule.serviceDate}</td>
 					<td><c:out value="${schedule.client}" /></td>
@@ -52,9 +54,9 @@
 					<td><c:out value="${schedule.serviceType}" /></td>
 					<td><c:out value="${schedule.employmentType}" /></td>
 					<td><c:out value="${schedule.billStatus}" /></td>
-					<td><c:if test="${schedule.billAmount != null}" ><c:out value="${schedule.billAmount}" /></c:if></td>
-					<td><c:out value="${schedule.payrollAmount}" /></td>
-					<td><c:if test ="${count > 0}" /><c:out value="${schedule.grossMargin}" /></td>
+					<td><fmt:formatNumber  value="${schedule.billAmount}" type="currency" /></td>
+					<td><fmt:formatNumber  value="${schedule.payrollAmount}" type="currency" /></td>
+					<td><c:if test ="${count > 0}" /><fmt:formatNumber  value="${schedule.grossMargin}" type="percent" /></td>
 					<td><a href="${updateLink}">Update</a>|<a
 						href="${deleteLink}" onclick="if(!(confirm('Are you sure you want to delete this schedule?'))) return false">Delete</a></td>
 

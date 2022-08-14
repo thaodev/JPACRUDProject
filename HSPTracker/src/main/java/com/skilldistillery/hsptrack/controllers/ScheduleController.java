@@ -124,13 +124,30 @@ public class ScheduleController {
 		return "servicesDetails";
 	}
 	
+	/**
+	 * 
+	 * @param model
+	 * @return KPIs
+	 */
 	
 	@RequestMapping(path = "getKPIs.do" )
-	public String getKPIs() {
+	public String getKPIs(Model model) {
+		List<Object[]> kpiByCity = dao.findKPIsByCity();
+		List<Object[]> kpiByService = dao.findKPIsByService();
+		List<Object[]> kpiByEmploymentType = dao.findKPIsByEmploymentType();
+		
+		model.addAttribute("kpiByCity", kpiByCity);
+		model.addAttribute("kpiByService", kpiByService);
+		model.addAttribute("kpiByEmploymentType", kpiByEmploymentType);
 		return "kpi" ;
 	}
+	
 	@RequestMapping(path = "getAnalytics.do" )
-	public String getAnalytics() {
+	public String getAnalytics(Model model) {
+		List<Schedule> sch = dao.findNotBilledSchedule();
+		List<Schedule> schLowGM = dao.findLowGM();
+		model.addAttribute("notBillSch",sch);
+		model.addAttribute("lowGMSch",schLowGM);
 		return "analytics" ;
 	}
 }
