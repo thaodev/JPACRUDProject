@@ -12,13 +12,13 @@
 </head>
 <body>
 
-	<div class="row">
+<!-- 	<div class="row">
 		<div class=" col-md-12 text-center">
 			<a href="getServiceDetails.do" class="btn btn-info"
 				role="button" aria-pressed="true">Show Service Details</a>
 		</div>
-	</div>
-	Ï
+	</div> -->
+	
 
 	<table class="table table-striped">
 		<thead>

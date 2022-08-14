@@ -17,7 +17,7 @@ public class ScheduleController {
 	@Autowired
 	private HspTrackerDAO dao;
 	
-	@RequestMapping(path = {"/", "home.do", "index.jsp"} )
+	@RequestMapping(path = {"/", "home.do"} )
 	public String home(Model model) {
 		model.addAttribute("DELETEME", dao.findById(1));// debug, delete later
 		return "index" ;
@@ -44,7 +44,9 @@ public class ScheduleController {
 		
 		return "servicesDetails";
 	}
-	
+	/**
+	 * CREATE
+	 */
 	@RequestMapping(path = "addSchedule.do", method=RequestMethod.POST)
 	public String addSchedule(Schedule service, Model model) {
 		System.out.println("inside addService");
@@ -81,7 +83,7 @@ public class ScheduleController {
 	}
 	
 	/**
-	 * CREATE
+	 * UPDATE
 	 */
 	@RequestMapping(path = "updateSchedule", method=RequestMethod.GET)
 	public String showFormForUpdate(int id, Model model) {
@@ -110,6 +112,10 @@ public class ScheduleController {
 		model.addAttribute("schedules",schedules);
 		return "servicesDetails";
 	}
+	
+	/*
+	 * DELETE
+	 */
 	@RequestMapping(path = "deleteSchedule", method=RequestMethod.GET)
 	public String deleteSchedule(int id, Model model) {
 		dao.deleteSchedule(id);
@@ -117,16 +123,14 @@ public class ScheduleController {
 		model.addAttribute("schedules",schedules);
 		return "servicesDetails";
 	}
-//	@RequestMapping(path = "updateFilm.do", method = RequestMethod.POST)
-//	public ModelAndView updateFilm(Film film, RedirectAttributes redir) {
-//		System.out.println("in update film");
-//		
-//		boolean result = dba.updateFilm(film);
-//		Film updatedFilm = dba.findFilmById(film.getId());
-//		ModelAndView mv = new ModelAndView();
-//		redir.addFlashAttribute("updateResult", result);
-//		redir.addFlashAttribute("film", updatedFilm);
-//		mv.setViewName("redirect:filmUpdated.do");
-//		return mv;
-//	}
+	
+	
+	@RequestMapping(path = "getKPIs.do" )
+	public String getKPIs() {
+		return "kpi" ;
+	}
+	@RequestMapping(path = "getAnalytics.do" )
+	public String getAnalytics() {
+		return "analytics" ;
+	}
 }

@@ -7,6 +7,6 @@
 <title>Performance Analytics</title>
 </head>
 <body>
-
+	<p> inside analytics</p>
 </body>
 </html>

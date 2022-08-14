@@ -11,16 +11,16 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.jsp">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="home.do">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Services</a>
+        <a class="nav-link" href="getServiceDetails.do">Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">KPIs</a>
+        <a class="nav-link" href="getKPIs.do">KPIs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Analytics</a>
+        <a class="nav-link" href="getAnalytics.do">Analytics</a>
       </li>
 <!--       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
