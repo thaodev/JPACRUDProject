@@ -88,8 +88,7 @@
 			</div>
 			<div class="form-group">
 				<label for="service type">Service Type</label> <select
-					class="form-select" name="serviceType" id="service type"
-					aria-label="Default select example">
+					class="form-select" name="serviceType" id="service type" 					aria-label="Default select example">
 					<option selected></option>
 					<!-- 					<option value="schedule == null ? '' : 'PDN'">PDN</option>
  -->

@@ -43,7 +43,8 @@ class serviceTest {
 	@Test
 	void test_Service_entity_mapping() {
 		assertNotNull(serviceTracker);
-		assertEquals("Michelle Green", serviceTracker.getClient());
+		assertEquals("Aspen Nguyen", serviceTracker.getClient());
+		assertEquals(EmploymentType.Employee, serviceTracker.getEmploymentType());
 	}
 
 }
