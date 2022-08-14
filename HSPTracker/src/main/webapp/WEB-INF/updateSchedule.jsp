@@ -12,75 +12,70 @@
 </head>
 <body>
 
-	<form action="updateSchedule.do" class="text-center" method="POST">
+	<form action="updateSchedule.do" method="POST">
 		<input type="hidden" name="id"
 			value="<c:out value= "${schedule.id}"/>" />
 		<div class="form-group">
 			<label for="date">Service Date*</label> <input type="text"
 				class="form-control" name="serviceDate" id="date" required
 				aria-describedby="description" placeholder="Date format YYYY-M-D"
-				value="schedule == null ? '' : <c:out value="${schedule.serviceDate }"/>">
+				value="<c:out value="${schedule.serviceDate }"/>">
 		</div>
 		<div class="form-group">
-			<label for="client">Client</label> <input type="text"
-				class="form-control" name="client" id="client"
+			<label for="client">Client*</label> <input type="text"
+				class="form-control"  required name="client" id="client"
 				aria-describedby="description" placeholder="Enter client"
-				value="schedule == null ? '' :<c:out value="${schedule.client }"/>">
+				value="<c:out value="${schedule.client }"/>">
 		</div>
 		<div class="form-group">
 			<label for="street">Street</label> <input type="text"
 				class="form-control" name="street" id="street"
 				placeholder="Enter Street"
-				value="schedule == null ? '' :<c:out value="${schedule.street }"/>">
+				value="<c:out value="${schedule.street }"/>">
 		</div>
 		<div class="form-group">
-			<label for="city">city</label> <input type="text"
+			<label for="city">City</label> <input type="text"
 				class="form-control" name="city" id="city" placeholder="Enter city"
-				value="schedule == null ? '' :<c:out value="${schedule.city }"/>">
+				value="<c:out value="${schedule.city }"/>">
 		</div>
 		<div class="form-group">
 			<label for="nurse">Service Provider</label> <input type="text"
 				class="form-control" name="nurse" id="nurse"
 				placeholder="Enter nurse"
-				value="schedule == null ? '' :<c:out value="${schedule.nurse }"/>">
+				value="<c:out value="${schedule.nurse }"/>">
 		</div>
 		<div class="form-group">
 			<label for="service type">Service Type</label> <select
-				class="form-select" name="serviceType" required id="service type"
+				class="form-select" name="serviceType" id="service type"
 				aria-label="Default select example">
-				<option selected></option>
-				<!-- 					<option value="schedule == null ? '' : 'PDN'">PDN</option>
+			<!-- 	<option selected></option>
+									<option value="schedule == null ? '' : 'PDN'">PDN</option>
  -->
-				<option
-					<c:if test="${schedule != null && schedule.serviceType == 'PDN'} "> selected</c:if>
+				<option <c:if test="${schedule.serviceType == 'PDN'} "> selected</c:if>
 					value="PDN">PDN</option>
-				<option
-					<c:if test="${schedule != null && schedule.serviceType == 'SN'} "> selected</c:if>
+				<option <c:if test="${schedule.serviceType == 'SN'} "> selected</c:if>
 					value="SN">SN</option>
-				<option
-					<c:if test="${schedule != null && schedule.serviceType == 'HHA'} "> selected</c:if>
+				<option <c:if test="${schedule.serviceType == 'HHA'} "> selected</c:if>
 					value="HHA">HHA</option>
-				<option
-					<c:if test="${schedule != null && schedule.serviceType == 'Therapy'} "> selected</c:if>
+				<option <c:if test="${schedule.serviceType == 'Therapy'} "> selected</c:if>
 					value="Therapy">Therapy</option>
 			</select>
 		</div>
 		<div class="form-group">
 			<label for="empl type">Employment Type</label> <select
-				class="form-select" name="employementType" required id="empl type"
+				class="form-select" name="employementType" id="empl type"
 				aria-label="Default select example">
-				<option selected></option>
 				<option
-					<c:if test="${schedule != null && schedule.employmentType == 'Contractor'} "> selected</c:if>
+					<c:if test="${schedule.employmentType == 'Contractor'} "> selected</c:if>
 					value="Contractor">Contractor</option>
 				<option
-					<c:if test="${schedule != null && schedule.employmentType == 'Employee'} "> selected</c:if>
+					<c:if test="${schedule.employmentType == 'Employee'} "> selected</c:if>
 					value="Employee">Employee</option>
 
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="status">Bill Status</label> <select class="form-select"
+			<label for="status">Bill Status*</label> <select class="form-select"
 				name="billStatus" required id="status"
 				aria-label="Default select example">
 				<!-- <option selected></option> -->
@@ -95,24 +90,27 @@
 		</div>
 
 		<div class="form-group">
-			<label for="bm">Bill Amount</label> <input type="number"
-				class="form-control" id="bm" name="billAmount"
+			<label for="bm">Bill Amount*</label> <input type="number"
+				class="form-control" required id="bm" name="billAmount"
 				placeholder="Enter Bill Amount"
-				value="schedule == null ? '' :<c:out value="${schedule.billAmount }"/>">
+				value="<c:out value="${schedule.billAmount }"/>">
 		</div>
 		<div class="form-group">
-			<label for="pm">Payroll Amount</label> <input type="number"
-				class="form-control" id="pm" name="payrollAmount"
+			<label for="pm">Payroll Amount*</label> <input type="number"
+				class="form-control" required id="pm" name="payrollAmount"
 				placeholder="Enter Payroll Amount"
-				value="schedule == null ? '' :<c:out value="${schedule.payrollAmount }"/>">
+				value="<c:out value="${schedule.payrollAmount }"/>">
 		</div>
 		<div class="form-group">
 			<label for="gm">Gross Margin</label> <input type="number"
 				class="form-control" id="gm" name="grossMargin"
-				value="schedule == null ? '' :<c:out value="${schedule.grossMargin}"/>">
+				value="<c:out value="${schedule.grossMargin}"/>">
 		</div>
 
-
+		<div class="text-center mt-3">
+			<button type="submit" id="btn" name="update" class="btn btn-primary">Update
+				Service</button>
+		</div>
 		<c:choose>
 			<c:when test="${empty updateResult}">
 			</c:when>
@@ -129,10 +127,7 @@
 
 
 		</c:choose>
-		<div class="text-center mt-3">
-			<button type="submit" id="btn" name="update" class="btn btn-primary">UpdateÏ
-				Service Film</button>
-		</div>
+
 
 
 	</form>

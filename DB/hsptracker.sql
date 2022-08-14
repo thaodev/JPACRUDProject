@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `service` (
   `bill_amount` DECIMAL(5,2) NULL,
   `payroll_amount` DECIMAL(5,2) NULL,
   `gross_margin` DECIMAL(5,2) NULL,
-  `service_date` DATETIME NULL,
+  `service_date` VARCHAR(15) NULL,
   `nurse` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;

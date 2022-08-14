@@ -17,7 +17,7 @@ public class ScheduleController {
 	@Autowired
 	private HspTrackerDAO dao;
 	
-	@RequestMapping(path = {"/", "home.do"} )
+	@RequestMapping(path = {"/", "home.do", "index.jsp"} )
 	public String home(Model model) {
 		model.addAttribute("DELETEME", dao.findById(1));// debug, delete later
 		return "index" ;
@@ -48,17 +48,23 @@ public class ScheduleController {
 	@RequestMapping(path = "addSchedule.do", method=RequestMethod.POST)
 	public String addSchedule(Schedule service, Model model) {
 		System.out.println("inside addService");
-		
+		boolean isScheduleAdded = false;
 		Schedule scheduleAdded = dao.addNewSchedule(service);
+		if (scheduleAdded != null) {
+			isScheduleAdded = true;
+		}
 		
 		model.addAttribute("schedule",scheduleAdded);
+		model.addAttribute("addResult",isScheduleAdded);
 		
 		return "redirect:scheduleAdded.do";
 	}
 	@RequestMapping(path = "scheduleAdded.do", method=RequestMethod.GET)
-	public String scheduleAdded(Schedule serviceAdded) {
+	public String scheduleAdded(Schedule scheduleAdded, Model model) {
+		List<Schedule> schedules = dao.findAll();
+		model.addAttribute("schedules",schedules);
 		System.out.println("inside scheduleAdded");
-		return "addService";
+		return "servicesDetails";
 	}
 	
 	@RequestMapping(path = "calculateMargin.do", method=RequestMethod.GET)
@@ -73,9 +79,24 @@ public class ScheduleController {
 		
 		return "servicesDetails";
 	}
+	
+	/**
+	 * CREATE
+	 */
+	@RequestMapping(path = "updateSchedule", method=RequestMethod.GET)
+	public String showFormForUpdate(int id, Model model) {
+		System.out.println("inside updateService");
+		
+		Schedule schedule = dao.findById(id);
+		
+		model.addAttribute("schedule",schedule);
+		
+		return "updateSchedule";
+	}
 	@RequestMapping(path = "updateSchedule.do", method=RequestMethod.POST)
 	public String updateSchedule(Schedule schedule, Model model) {
 		System.out.println("inside updateService");
+		
 		boolean isUpdatedSuccess = dao.updateSchedule(schedule);
 		
 		model.addAttribute("schedule",schedule);
@@ -84,9 +105,10 @@ public class ScheduleController {
 		return "redirect:scheduleUpdated.do";
 	}
 	@RequestMapping(path = "scheduleUpdated.do", method=RequestMethod.GET)
-	public String scheduleUpdated() {
-		
-		return "addOrUpdateService";
+	public String scheduleUpdated(Model model) {
+		List<Schedule> schedules = dao.findAll();
+		model.addAttribute("schedules",schedules);
+		return "servicesDetails";
 	}
 //	@RequestMapping(path = "updateFilm.do", method = RequestMethod.POST)
 //	public ModelAndView updateFilm(Film film, RedirectAttributes redir) {

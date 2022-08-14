@@ -1,6 +1,5 @@
 package com.skilldistillery.hsptrack.entities;
 
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,15 +48,15 @@ public class Schedule {
 	private Double grossMargin;
 	
 	@Column(name="service_date")
-	private LocalDate serviceDate;
+	private String serviceDate;
 	
-
+	
 	
 
 	public Schedule() {
 	}
 
-	public Schedule(String client, String nurse, LocalDate serviceDate) {
+	public Schedule(String client, String nurse, String serviceDate) {
 		this.client = client;
 		this.nurse = nurse;
 		this.serviceDate = serviceDate;
@@ -161,11 +160,11 @@ public class Schedule {
 		this.grossMargin = grossMargin;
 	}
 
-	public LocalDate getServiceDate() {
+	public String getServiceDate() {
 		return serviceDate;
 	}
 
-	public void setServiceDate(LocalDate serviceDate) {
+	public void setServiceDate(String serviceDate) {
 		this.serviceDate = serviceDate;
 	}
 

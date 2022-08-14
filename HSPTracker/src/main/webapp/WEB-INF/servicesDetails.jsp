@@ -32,6 +32,17 @@
 		</thead>
 		<tbody>
 			<c:forEach var="schedule" items="${schedules}">
+			<!-- construct an delete link with schedule id  -->
+			<c:url var="updateLink" value="updateSchedule">
+				<c:param name="id" value = "${schedule.id}"/>
+			</c:url>
+			<!-- construct an update link with schedule id  -->
+			<c:url var="deleteLink" value="deleteService">
+				<c:param name="id" value = "${schedule.id}"/>
+			</c:url>
+			
+			
+			
 				<tr>
 					<td>${schedule.serviceDate}</td>
 					<td><c:out value="${schedule.client}" /></td>
@@ -44,7 +55,7 @@
 					<td><c:if test="${schedule.billAmount != null}" ><c:out value="${schedule.billAmount}" /></c:if></td>
 					<td><c:out value="${schedule.payrollAmount}" /></td>
 					<td><c:if test ="${count > 0}" /><c:out value="${schedule.grossMargin}" /></td>
-					<td><a href="updateSchedule.do">Update</a>|<a
+					<td><a href="${updateLink}">Update</a>|<a
 						href="delete.do?sid=${schedule.id}">Delete</a></td>
 
 
