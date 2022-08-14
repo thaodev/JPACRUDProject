@@ -37,7 +37,7 @@
 			value="<c:out value= "${schedule.id}"/>" /> --%>
 			<div class="form-group">
 				<label for="datepicker">Service Date*</label> <input type="text"
-					class="form-control" required name="serviceDate" id="datepicker"
+					class="form-control" required name="serviceDate" readonly id="datepicker"
 					aria-describedby="description" placeholder="" value="<c:out value="${schedule.serviceDate}"/>"/>
 				
 				<%-- <%@ page

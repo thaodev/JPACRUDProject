@@ -13,8 +13,6 @@
 <h1>Welcome to our Home Health Services</h1>
 
 
-${DELETEME}
-
 <a href="service.do"> Show all services</a>
 <jsp:include page="../bootstrapFoot.jsp"></jsp:include>
 </body>

@@ -11,7 +11,7 @@
 <jsp:include page="../navbar.jsp"></jsp:include>
 </head>
 <body>
-
+<div class="container-fluid">
 	<table class="table table-striped">
 		<thead>
 
@@ -63,7 +63,10 @@
 			</c:forEach>
 		</tbody>
 	</table>
-<div class="text-center d-flex flex-row float-right ">
+	<div class="row ">
+	<div class="col-sm"></div>
+	
+<div class="col-sm text-center d-flex flex-row  ">
 		<div style="margin-right: 10px">
 			<a href="addService.do" class="btn btn-info" role="button"
 				aria-pressed="true">Add Service</a>
@@ -73,7 +76,9 @@
 				aria-pressed="true">Calculate Margin</a>
 		</div>
 	</div> 
-
+	<div class="col-sm"></div>
+</div>
+</div>
 	<%-- <div class="col-sm text-center d-flex flex-row float-none" class="mr-3">
 		<div style="margin-right: 10px">
 			<form action="addService.jsp" method="POST">

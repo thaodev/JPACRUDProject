@@ -115,5 +115,29 @@ public class HspTrackerDAOImpl implements HspTrackerDAO {
 		return isDeleted;
 	}
 
+	@Override
+	public void findRevenueByCity() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findAvgGMByCity() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Schedule> findNegativeGM() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Schedule> findNotBilledSchedule() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
