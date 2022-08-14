@@ -110,6 +110,13 @@ public class ScheduleController {
 		model.addAttribute("schedules",schedules);
 		return "servicesDetails";
 	}
+	@RequestMapping(path = "deleteSchedule", method=RequestMethod.GET)
+	public String deleteSchedule(int id, Model model) {
+		dao.deleteSchedule(id);
+		List<Schedule> schedules = dao.findAll();
+		model.addAttribute("schedules",schedules);
+		return "servicesDetails";
+	}
 //	@RequestMapping(path = "updateFilm.do", method = RequestMethod.POST)
 //	public ModelAndView updateFilm(Film film, RedirectAttributes redir) {
 //		System.out.println("in update film");

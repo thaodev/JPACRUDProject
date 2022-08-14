@@ -37,7 +37,7 @@
 				<c:param name="id" value = "${schedule.id}"/>
 			</c:url>
 			<!-- construct an update link with schedule id  -->
-			<c:url var="deleteLink" value="deleteService">
+			<c:url var="deleteLink" value="deleteSchedule">
 				<c:param name="id" value = "${schedule.id}"/>
 			</c:url>
 			
@@ -56,7 +56,7 @@
 					<td><c:out value="${schedule.payrollAmount}" /></td>
 					<td><c:if test ="${count > 0}" /><c:out value="${schedule.grossMargin}" /></td>
 					<td><a href="${updateLink}">Update</a>|<a
-						href="delete.do?sid=${schedule.id}">Delete</a></td>
+						href="${deleteLink}" onclick="if(!(confirm('Are you sure you want to delete this schedule?'))) return false">Delete</a></td>
 
 
 				</tr>
