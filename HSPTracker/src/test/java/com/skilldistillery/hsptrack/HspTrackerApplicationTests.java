@@ -57,20 +57,26 @@ class HspTrackerApplicationTests {
 		assertEquals(184, schedule.getPayrollAmount());
 	}
 	
-	@Test
-	void test_lowGM_return_services_with_GM_less_than_thirty_percent(){
-		List<Schedule> lowPerformer = dao.findLowGM();
-		System.out.println(lowPerformer.get(0).getGrossMargin());
-		assertTrue(lowPerformer.get(1).getGrossMargin() < 0.3);
-	}
-	
-	@Test
-	void test_findNotBilledSchedule_return_non_bill_schedules() {
-		List<Schedule> oS = dao.findNotBilledSchedule();
-		System.out.println("bill status " + oS.get(0).getBillStatus());
-		boolean expected = false;
-		assertEquals(expected, oS.get(1).getBillStatus());
-	}
+//	@Test
+//	void test_lowGM_return_services_with_GM_less_than_thirty_percent(){
+//		List<Schedule> lowPerformer = dao.findLowGM();
+//		System.out.println(lowPerformer.get(0).getGrossMargin());
+//		assertTrue(lowPerformer.get(1).getGrossMargin() < 0.3);
+//	}
+//	
+//	@Test
+//	void test_findNotBilledSchedule_return_non_bill_schedules() {
+//		List<Schedule> oS = dao.findNotBilledSchedule();
+//		System.out.println("bill status " + oS.get(0).getBillStatus());
+//		boolean expected = false;
+//		assertEquals(expected, oS.get(1).getBillStatus());
+//	}
+//	@Test
+//	void test_searchByName_return_schedules_with_clientname_have_the_search_key_word() {
+//		List<Schedule> foundS = dao.searchByClient("Nguyen");
+//		System.out.println("bill status " + foundS.get(0));
+//		assertTrue(foundS.get(0).getClient().contains("Nguyen"));
+//	}
 	@Test
 	void contextLoads() {
 	}

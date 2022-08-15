@@ -1,6 +1,6 @@
 # JPACRUDProject
 ## Overview
-This application allows the granted users to create new and delete and/or update existing service schedules with multiple fields as well as giving managers the overview of company's overall performances and KPIs for departments and locations. The users can also look up certain service by client name. Any change/update from user will be presented on the MySQL database.
+This application allows the granted users to create new and delete and/or update existing service schedules with multiple fields as well as giving managers the overview of company's overall performances and KPIs for departments and locations. The users can also look up certain service by client name. Any change/update from user will be presented on the MySQL database. When users want to delete a certain schedule, there is a prompt on browser show up asking for confirmation of the detete decision.
 In order to use all of functions, an user has to log in with given account information, and log out when finish browsing.
 
 ## Technologies

@@ -12,13 +12,13 @@
 <jsp:include page="../navbar.jsp"></jsp:include>
 </head>
 <body>
-	<div class="row" style="float:right">
+	<div class="row "  style="float:right">
 		<form action="searchByClient.do" class="form-group mx-sm-3 mb-2 ">
 			<input type="search" class="rounded" name="search"
 				placeholder="Search By Client Name" aria-label="Search"
 				aria-describedby="search-addon" />
 			<button type="submit" class="btn btn-secondary mb-2">Search</button>
-		</form>
+		</form><br>
 	</div>
 	<div class="container-fluid">
 		<!-- 	    <form action="searchByClient.do" class="form-inline float-left " >my-2 my-lg-0
@@ -26,7 +26,7 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search By Client</button>
     </form> -->
 
-		<div class="text-center">
+		<div class="row text-center">
 			<h3>SCHEDULE MASTER</h3>
 		</div>
 		<table class="table table-striped ">

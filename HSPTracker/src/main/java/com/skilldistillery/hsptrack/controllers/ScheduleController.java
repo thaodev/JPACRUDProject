@@ -39,6 +39,7 @@ public class ScheduleController {
 	@RequestMapping(path = "getServiceDetails.do")
 	public String scheduleDetails(Model model) {
 		List<Schedule> schedules = dao.findAll();
+		dao.calculateGrossMargin();
 		
 		model.addAttribute("schedules",schedules);
 		
