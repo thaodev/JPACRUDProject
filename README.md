@@ -4,17 +4,17 @@ This application allows the granted users to create new and delete and/or update
 In order to use all of functions, an user has to log in with given account information, and log out when finish browsing.
 
 ###Technologies
-#####JPA
-#####Spring MVC
-#####Bootstraps and CSS
-#####Java
-#####MySQL Workbench, MySQL
-#####HTML
+ - JPA
+ - Spring MVC
+ - Bootstraps and CSS
+ - Java
+ - MySQL Workbench, MySQL
+ - HTML
 
 ###Lessions
-#####Print to console to debug
-#####Understand the traffic flows of requests and responses
-#####Using jpql syntax to access and update database
-#####Working with database data type
-#####Using controller to move around jsp pages
-#####Login and Logout to create and finish a session
+ - Print to console to debug
+ - Understand the traffic flows of requests and responses
+ - Using jpql syntax to access and update database
+ - Working with database data type
+ - Using controller to move around jsp pages
+ - Login and Logout to create and finish a session
