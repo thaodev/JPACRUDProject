@@ -22,6 +22,7 @@ public class InMemoryUserDAO implements UserDAO {
     users.put(3, new User(3, "testuser", "5f4dcc3b5aa765d61d8327deb882cf99", "Ronald", "McD"));
     // id: topper, cleartext password: topgun
     users.put(4, new User(4, "topper", "46a46b0a267201c0c742cee54685d62c", "Topper", "Harley"));
+    users.put(5, new User(5, "officer", "officer", "Danny", "Cooler"));
   }
   
   @Override

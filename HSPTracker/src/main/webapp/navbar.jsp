@@ -45,6 +45,14 @@
 <!--       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>--->
+       <li class="nav-item float-right">
+        <a class="nav-link" href="logout.do">Logout</a>
+      </li>
     </ul>
+
+  <!--   <span class=" float-right">
+      <a class="nav-link" href="logout.do">Logout</a>
+    </span> -->
+   
   </div>
 </nav>

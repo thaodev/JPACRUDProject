@@ -53,7 +53,7 @@ public class HspTrackerDAOImpl implements HspTrackerDAO {
 	@Override
 	public int calculateGrossMargin() {
 		int count = 0;
-		String jpql = "UPDATE Schedule s SET s.grossMargin = (s.billAmount - s.payrollAmount)/s.payrollAmount WHERE s.grossMargin IS NULL";
+		String jpql = "UPDATE Schedule s SET s.grossMargin = (s.billAmount - s.payrollAmount)/s.billAmount";
 		
 		count = em.createQuery(jpql).executeUpdate();
 
@@ -165,6 +165,16 @@ public class HspTrackerDAOImpl implements HspTrackerDAO {
 		List<Schedule> schedules = null;
 		String jpql="SELECT s FROM Schedule s WHERE s.grossMargin < 0.3";
 		schedules = em.createQuery(jpql, Schedule.class).getResultList();
+		
+		return schedules;
+	}
+
+	@Override
+	public List<Schedule> searchByClient(String name) {
+		// TODO Auto-generated method stub
+		List<Schedule> schedules = null;
+		String jpql="SELECT s FROM Schedule s WHERE s.client LIKE  :name";
+		schedules = em.createQuery(jpql, Schedule.class).setParameter("name", "%" +name+"%").getResultList();
 		
 		return schedules;
 	}

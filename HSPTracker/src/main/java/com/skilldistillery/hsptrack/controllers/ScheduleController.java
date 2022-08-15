@@ -150,4 +150,14 @@ public class ScheduleController {
 		model.addAttribute("lowGMSch",schLowGM);
 		return "analytics" ;
 	}
+	
+	/**
+	 * SEARCH
+	 */
+	@RequestMapping(path = "searchByClient.do" )
+	public String getScheduleByClient(Model model, String search) {
+		List<Schedule> schedules = dao.searchByClient(search);
+		model.addAttribute("schedules", schedules);
+		return "servicesDetails" ;
+	}
 }

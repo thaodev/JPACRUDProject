@@ -17,5 +17,6 @@ public interface HspTrackerDAO {
 	List<Object[]>  findKPIsByEmploymentType();
 	List<Schedule> findNotBilledSchedule();
 	List<Schedule> findLowGM();
+	List<Schedule> searchByClient(String name);
 	
 }
