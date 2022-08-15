@@ -165,7 +165,7 @@ public class HspTrackerDAOImpl implements HspTrackerDAO {
 		List<Schedule> schedules = null;
 		String jpql="SELECT s FROM Schedule s WHERE s.grossMargin < 0.3";
 		schedules = em.createQuery(jpql, Schedule.class).getResultList();
-		
+		System.out.println("GM " + schedules.get(0).getGrossMargin());
 		return schedules;
 	}
 

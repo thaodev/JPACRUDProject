@@ -2,6 +2,9 @@ package com.skilldistillery.hsptrack.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,6 +20,7 @@ class serviceTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Schedule serviceTracker;
+	
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -46,5 +50,7 @@ class serviceTest {
 		assertEquals("Aspen Nguyen", serviceTracker.getClient());
 		assertEquals(EmploymentType.Employee, serviceTracker.getEmploymentType());
 	}
+	
+
 
 }
