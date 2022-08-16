@@ -20,7 +20,7 @@ public class ScheduleController {
 	@RequestMapping(path = {"/", "home.do"} )
 	public String home(Model model) {
 		model.addAttribute("DELETEME", dao.findById(1));// debug, delete later
-		return "index" ;
+		return "servicesDetails" ;
 	}
 	@RequestMapping(path = "addService.do" )
 	public String add() {

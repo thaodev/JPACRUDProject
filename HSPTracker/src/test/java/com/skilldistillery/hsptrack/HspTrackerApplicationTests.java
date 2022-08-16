@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.skilldistillery.hsptrack.data.HspTrackerDAO;
+import com.skilldistillery.hsptrack.entities.EmploymentType;
 import com.skilldistillery.hsptrack.entities.Schedule;
+import com.skilldistillery.hsptrack.entities.ServiceType;
 
 @SpringBootTest
 class HspTrackerApplicationTests {
@@ -74,6 +76,22 @@ class HspTrackerApplicationTests {
 		System.out.println("bill status " + foundS.get(0));
 		assertTrue(foundS.get(0).getClient().contains("Nguyen"));
 	}
+	
+	@Test
+	void test_add_schedule() {
+		Schedule schToAdd = new Schedule("Bob Donald", "Mary John", "12/1/2021");
+		schToAdd = dao.addNewSchedule(schToAdd);
+		schToAdd.setServiceType(ServiceType.PDN);
+		int id = schToAdd.getId();
+		assertEquals(ServiceType.PDN, schToAdd.getServiceType());
+	}
+//	@Test
+//	void test_update_schedule() {
+//		Schedule schToUpdate = dao.findById(10);
+//		schToUpdate.setEmploymentType(EmploymentType.Employee);
+//		assertEquals(EmploymentType.Employee, schToUpdate.getEmploymentType());
+//	}
+	
 	@Test
 	void contextLoads() {
 	}

@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `service` (
   `client` VARCHAR(45) NOT NULL,
   `client_address` VARCHAR(45) NULL,
   `client_city` VARCHAR(45) NULL,
-  `employment_type` VARCHAR(45) NULL,
+  `employment_type` ENUM('Employee', 'Contractor') NULL,
   `service_type` ENUM('HHA', 'SN', 'PDN', 'Therapy') NULL,
   `bill_status` TINYINT NULL,
   `bill_amount` DECIMAL(5,0) NULL,

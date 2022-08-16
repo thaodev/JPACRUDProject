@@ -23,7 +23,7 @@
 		</div>
 		<div class="form-group">
 			<label for="client">Client*</label> <input type="text"
-				class="form-control"  required name="client" id="client"
+				class="form-control" required name="client" id="client"
 				aria-describedby="description" placeholder="Enter client"
 				value="<c:out value="${schedule.client }"/>">
 		</div>
@@ -48,29 +48,32 @@
 			<label for="service type">Service Type</label> <select
 				class="form-select" name="serviceType" id="service type"
 				aria-label="Default select example">
-			<!-- 	<option selected></option>
-									<option value="schedule == null ? '' : 'PDN'">PDN</option>
- -->
-				<option <c:if test="${schedule.serviceType == 'PDN'} "> selected</c:if>
-					value="PDN">PDN</option>
-				<option <c:if test="${schedule.serviceType == 'SN'} "> selected</c:if>
-					value="SN">SN</option>
-				<option <c:if test="${schedule.serviceType == 'HHA'} "> selected</c:if>
-					value="HHA">HHA</option>
-				<option <c:if test="${schedule.serviceType == 'Therapy'} "> selected</c:if>
-					value="Therapy">Therapy</option>
+				<!-- <option selected>Select service type</option> -->
+				<option
+					<c:if test="${schedule.serviceType == ServiceType.PDN} "> selected</c:if>
+					value="${schedule.serviceType}">PDN</option>
+				<option
+					<c:if test="${schedule.serviceType == ServiceType.SN} "> selected</c:if>
+					value="${schedule.serviceType}">SN</option>
+				<option
+					<c:if test="${schedule.serviceType == ServiceType.HHA} "> selected</c:if>
+					value="${schedule.serviceType}">HHA</option>
+				<option
+					<c:if test="${schedule.serviceType == ServiceType.Therapy} "> selected</c:if>
+					value="${schedule.serviceType}">Therapy</option>
 			</select>
 		</div>
 		<div class="form-group">
 			<label for="empl type">Employment Type</label> <select
-				class="form-select" name="employementType" id="empl type"
+				class="form-select" name="employmentType" id="empl type"
 				aria-label="Default select example">
+				<!-- <option selected>Select Employment Type</option> -->
 				<option
-					<c:if test="${schedule.employmentType == 'Contractor'} "> selected</c:if>
-					value="Contractor">Contractor</option>
+					<c:if test="${schedule.employmentType == EmploymentType.Contractor} "> selected</c:if>
+					value="${schedule.employmentType}">Contractor</option>
 				<option
-					<c:if test="${schedule.employmentType == 'Employee'} "> selected</c:if>
-					value="Employee">Employee</option>
+					<c:if test="${schedule.employmentType == EmploymentType.Employee} "> selected</c:if>
+					value="${schedule.employmentType}">Employee</option>
 
 			</select>
 		</div>
@@ -80,10 +83,10 @@
 				aria-label="Default select example">
 				<!-- <option selected></option> -->
 				<option
-					<c:if test="${schedule != null && schedule.billStatus == true} "> selected</c:if>
+					<c:if test="${schedule.billStatus == true} "> selected</c:if>
 					value="true">Yes</option>
 				<option
-					<c:if test="${schedule != null && schedule.billStatus == false} "> selected</c:if>
+					<c:if test="${schedule.billStatus == false} "> selected</c:if>
 					value="false">No</option>
 
 			</select>

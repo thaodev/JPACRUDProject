@@ -36,7 +36,7 @@ public class Schedule {
 	private ServiceType serviceType;
 	
 	@Column(name="bill_status")
-	private Boolean billStatus;
+	private Boolean billStatus;	
 	
 	@Column(name="bill_amount")
 	private Double billAmount;
