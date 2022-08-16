@@ -12,7 +12,12 @@ sourceCompatibility = '1.8'
 repositories {
 	mavenCentral()
 }
-
+war {
+  // Gradle will replace the variable archivesBaseName
+  // with our app name, as defined in settings.gradle
+  archiveFileName = "${archivesBaseName}.war"
+  destinationDirectory = file("../")     // Project workspace directory
+}
 dependencies {
 implementation 'javax.servlet:jstl:1.2'
 implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
@@ -27,3 +32,5 @@ implementation project(':JPAhspTracker')
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+
