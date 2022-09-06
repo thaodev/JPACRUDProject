@@ -81,9 +81,9 @@ class HspTrackerApplicationTests {
 	void test_add_schedule() {
 		Schedule schToAdd = new Schedule("Bob Donald", "Mary John", "12/1/2021");
 		schToAdd = dao.addNewSchedule(schToAdd);
-		schToAdd.setServiceType(ServiceType.PDN);
+		schToAdd.setServiceType("PDN");
 		int id = schToAdd.getId();
-		assertEquals(ServiceType.PDN, schToAdd.getServiceType());
+		assertEquals("PDN", schToAdd.getServiceType());
 	}
 //	@Test
 //	void test_update_schedule() {

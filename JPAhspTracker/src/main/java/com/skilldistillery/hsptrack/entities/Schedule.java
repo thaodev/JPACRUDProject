@@ -28,12 +28,10 @@ public class Schedule {
 	private String nurse;
 	
 	@Column(name="employment_type")
-	@Enumerated(EnumType.STRING)
-	private EmploymentType employmentType;
+	private String employmentType;
 	
 	@Column(name="service_type")
-	@Enumerated(EnumType.STRING)
-	private ServiceType serviceType;
+	private String serviceType;
 	
 	@Column(name="bill_status")
 	private Boolean billStatus;	
@@ -112,19 +110,19 @@ public class Schedule {
 		this.nurse = nurse;
 	}
 
-	public EmploymentType getEmploymentType() {
+	public String getEmploymentType() {
 		return employmentType;
 	}
 
-	public void setEmploymentType(EmploymentType employmentType) {
+	public void setEmploymentType(String employmentType) {
 		this.employmentType = employmentType;
 	}
 
-	public ServiceType getServiceType() {
+	public String getServiceType() {
 		return serviceType;
 	}
 
-	public void setServiceType(ServiceType serviceType) {
+	public void setServiceType(String serviceType) {
 		this.serviceType = serviceType;
 	}
 

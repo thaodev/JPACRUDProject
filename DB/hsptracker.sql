@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `service` (
   `client` VARCHAR(45) NOT NULL,
   `client_address` VARCHAR(45) NULL,
   `client_city` VARCHAR(45) NULL,
-  `employment_type` ENUM('Employee', 'Contractor') NULL,
+  `employment_type` VARCHAR(45) NULL,
   `service_type` ENUM('HHA', 'SN', 'PDN', 'Therapy') NULL,
   `bill_status` TINYINT NULL,
   `bill_amount` DECIMAL(5,0) NULL,
@@ -33,6 +33,19 @@ CREATE TABLE IF NOT EXISTS `service` (
   `service_date` VARCHAR(20) NULL,
   `nurse` VARCHAR(45) NULL,
   `gross_margin` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `post`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `post` ;
+
+CREATE TABLE IF NOT EXISTS `post` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(45) NULL,
+  `content` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -73,6 +86,16 @@ INSERT INTO `service` (`id`, `client`, `client_address`, `client_city`, `employm
 INSERT INTO `service` (`id`, `client`, `client_address`, `client_city`, `employment_type`, `service_type`, `bill_status`, `bill_amount`, `payroll_amount`, `service_date`, `nurse`, `gross_margin`) VALUES (19, 'Barnito Henderson', 'Ap #989-1465 Velit. Avenue', 'Denver', 'Employee', 'SN', 0, 257, 133, '12/1/2021', 'William Gantt', NULL);
 INSERT INTO `service` (`id`, `client`, `client_address`, `client_city`, `employment_type`, `service_type`, `bill_status`, `bill_amount`, `payroll_amount`, `service_date`, `nurse`, `gross_margin`) VALUES (20, 'Luke Stamer', '273-411 Facilisis Rd.', 'Durango', 'Employee', 'PDN', 0, 328, 165, '9/2/2021', 'Adison Parker', NULL);
 INSERT INTO `service` (`id`, `client`, `client_address`, `client_city`, `employment_type`, `service_type`, `bill_status`, `bill_amount`, `payroll_amount`, `service_date`, `nurse`, `gross_margin`) VALUES (21, 'Sam Radabaugh', 'Ap #545-8844 Tristique Rd.', 'Aspen', 'Employee', 'PDN', 0, 316, 158, '8/9/2021', 'Lamar Desir', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `post`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `hsptracker`;
+INSERT INTO `post` (`id`, `title`, `content`) VALUES (1, 'WebSocket vs HTTP', 'WebSocket is  not http');
 
 COMMIT;
 

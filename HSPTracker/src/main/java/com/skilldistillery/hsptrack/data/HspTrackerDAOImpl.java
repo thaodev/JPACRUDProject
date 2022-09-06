@@ -94,9 +94,9 @@ public class HspTrackerDAOImpl implements HspTrackerDAO {
 //				.setParameter("payrollAmount", schedule.getPayrollAmount())
 //				.setParameter("grossMargin", schedule.getGrossMargin())
 //				.getResultList();
-//		if (scheduleUpdated != null) {
-//			isUpdated = true;
-//		} 
+		if (updatedSch != null) {
+			isUpdated = true;
+		} 
 
 		return isUpdated;
 	}

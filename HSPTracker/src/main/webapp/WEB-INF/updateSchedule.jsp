@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.Random"%>
 
 <!DOCTYPE html>
 <html>
@@ -46,20 +47,19 @@
 		</div>
 		<div class="form-group">
 			<label for="service type">Service Type</label> <select
-				class="form-select" name="serviceType" id="service type"
-				aria-label="Default select example">
+				class="form-select" name="serviceType" id="service type" >
 				<!-- <option selected>Select service type</option> -->
 				<option
-					<c:if test="${schedule.serviceType == ServiceType.PDN} "> selected</c:if>
+					<c:if test="${schedule.serviceType == 'PDN'} "> selected</c:if>
 					value="${schedule.serviceType}">PDN</option>
 				<option
-					<c:if test="${schedule.serviceType == ServiceType.SN} "> selected</c:if>
+					<c:if test="${schedule.serviceType == 'SN'} "> selected</c:if>
 					value="${schedule.serviceType}">SN</option>
 				<option
-					<c:if test="${schedule.serviceType == ServiceType.HHA} "> selected</c:if>
+					<c:if test="${schedule.serviceType == 'HHA'} "> selected</c:if>
 					value="${schedule.serviceType}">HHA</option>
 				<option
-					<c:if test="${schedule.serviceType == ServiceType.Therapy} "> selected</c:if>
+					<c:if test="${schedule.serviceType == 'Therapy'} "> selected</c:if>
 					value="${schedule.serviceType}">Therapy</option>
 			</select>
 		</div>
@@ -69,10 +69,10 @@
 				aria-label="Default select example">
 				<!-- <option selected>Select Employment Type</option> -->
 				<option
-					<c:if test="${schedule.employmentType == EmploymentType.Contractor} "> selected</c:if>
+					<c:if test="${schedule.employmentType == 'Contractor'} "> selected</c:if>
 					value="${schedule.employmentType}">Contractor</option>
 				<option
-					<c:if test="${schedule.employmentType == EmploymentType.Employee} "> selected</c:if>
+					<c:if test="${schedule.employmentType == 'Employee'} "> selected</c:if>
 					value="${schedule.employmentType}">Employee</option>
 
 			</select>
@@ -108,6 +108,7 @@
 			<label for="gm">Gross Margin</label> <input type="number"
 				class="form-control" id="gm" name="grossMargin"
 				value="<c:out value="${schedule.grossMargin}"/>">
+				<div></div>
 		</div>
 
 		<div class="text-center mt-3">
