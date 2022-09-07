@@ -17,7 +17,12 @@ public class PostDAOImpl implements PostDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
-
+	
+	@Override
+	public Post findById(int id) {
+		Post post = em.find(Post.class, 1);
+		return post;
+	}
 	@Override
 	public List<Post> findByKeyword(String keyword) {
 		List<Post> posts = null;

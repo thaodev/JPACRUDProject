@@ -36,6 +36,7 @@
 		</div>
 	</div>
 	<c:forEach var="post" items="${posts}">
+	<div class="border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250">
 		<p>
 			Title: <strong>${post.title}</strong>
 		</p>
@@ -43,10 +44,11 @@
 		<p>
 			<c:out value="${post.content}" />
 		</p>
+		</div>
 	</c:forEach>
 
 	<form action="postAdded.do" method="POST">
-	
+		
 
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">Title</div>
