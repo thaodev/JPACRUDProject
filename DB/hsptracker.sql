@@ -46,6 +46,19 @@ CREATE TABLE IF NOT EXISTS `post` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NULL,
   `content` VARCHAR(1000) NULL,
+  `create_at` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `todo`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `todo` ;
+
+CREATE TABLE IF NOT EXISTS `todo` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `content` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -95,7 +108,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `hsptracker`;
-INSERT INTO `post` (`id`, `title`, `content`) VALUES (1, 'WebSocket vs HTTP', 'WebSocket is  not http');
+INSERT INTO `post` (`id`, `title`, `content`, `create_at`) VALUES (1, 'WebSocket vs HTTP', 'WebSocket is  not http', '2022-02-20 00:15:00');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `todo`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `hsptracker`;
+INSERT INTO `todo` (`id`, `content`) VALUES (1, 'push code everyday');
 
 COMMIT;
 

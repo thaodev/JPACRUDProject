@@ -8,6 +8,7 @@
     <!--entities -->
     <class>com.skilldistillery.hsptrack.entities.Schedule</class>
     <class>com.skilldistillery.hsptrack.entities.Post</class>
+    <class>com.skilldistillery.hsptrack.entities.ToDo</class>
 
     <!--entities -->
 

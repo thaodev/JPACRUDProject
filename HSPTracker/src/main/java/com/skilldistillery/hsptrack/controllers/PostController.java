@@ -34,6 +34,7 @@ public class PostController {
 	public String postSearch(String keyword, Model model) {
 		List<Post> posts = dao.findByKeyword(keyword);
 		model.addAttribute("posts", posts);
+		System.out.println("list of posts" + posts);
 		return "postList";
 	}
 

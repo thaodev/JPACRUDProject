@@ -1,9 +1,14 @@
 package com.skilldistillery.hsptrack.entities;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class Post {
@@ -16,6 +21,9 @@ public class Post {
 	
 	private String content;
 	
+	@Column(name="create_at")
+	@CreationTimestamp
+	private LocalDateTime createAt;
 	
 
 	public Post() {

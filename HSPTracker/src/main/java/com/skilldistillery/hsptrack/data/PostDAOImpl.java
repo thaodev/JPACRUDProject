@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.hsptrack.entities.Post;
-import com.skilldistillery.hsptrack.entities.Schedule;
 
 @Service
 @Transactional
