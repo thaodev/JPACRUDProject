@@ -29,7 +29,7 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<Post> findAll() {
 		List<Post> posts = null;
-		String jpql = "SELECT p FROM Post p";
+		String jpql = "SELECT p FROM Post p ORDER BY p.title";
 		posts = em.createQuery(jpql, Post.class).getResultList();
 		if(posts != null) {
 			System.out.println(posts);

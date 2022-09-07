@@ -12,9 +12,9 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private int title;
+	private String title;
 	
-	private int content;
+	private String content;
 	
 	
 
@@ -29,27 +29,28 @@ public class Post {
 		this.id = id;
 	}
 
-	public int getTitle() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(int title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public int getContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent(int content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 
-	public Post(int id, int title, int content) {
-		this.id = id;
-		this.title = title;
-		this.content = content;
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", title=" + title + ", content=" + content + "]";
 	}
+
+
 	
 	
 	
