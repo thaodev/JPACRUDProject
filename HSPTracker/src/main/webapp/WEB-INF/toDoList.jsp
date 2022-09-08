@@ -50,10 +50,11 @@ body {
 										<th scope="col">Actions</th>
 									</tr>
 								</thead>
+								<c:forEach var="todo" items="${list}">
 								<tbody>
 									<tr>
-										<th scope="row">1</th>
-										<td>Buy groceries for next week</td>
+										<th scope="row">${todo.id}</th>
+										<td>${todo.content}</td>
 										<td><select class="form-control"
 											id="exampleFormControlSelect1">
 												<option>Hasn't started</option>
@@ -61,11 +62,12 @@ body {
 												<option>Completed</option>
 										</select></td>
 										<td>
-											<button type="submit" class="btn btn-sm btn-danger">Delete</button>
+											<button type="submit" class="btn btn-sm btn-danger" onclick="location.href='deleteToDo?id=${todo.id}'">Delete</button>
 										</td>
 									</tr>
 
 								</tbody>
+								</c:forEach>
 							</table>
 
 						</div>
