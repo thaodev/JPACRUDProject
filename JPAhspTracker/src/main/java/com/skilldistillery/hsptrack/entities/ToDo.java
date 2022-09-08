@@ -41,7 +41,7 @@ public class ToDo {
 
 	@Override
 	public String toString() {
-		return "ToDo [content=" + content + "]";
+		return "ToDo [id=" + id + ", content=" + content + "]";
 	}
 	
 	

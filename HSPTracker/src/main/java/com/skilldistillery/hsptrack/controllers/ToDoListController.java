@@ -19,6 +19,7 @@ public class ToDoListController {
 	@RequestMapping (path="todolist")
 	public String todoList(Model model) {
 		List<ToDo> list = dao.toDoList();
+		System.out.println(list);
 		model.addAttribute("list", list);
 		return "toDoList";
 	}
@@ -30,7 +31,7 @@ public class ToDoListController {
 	@RequestMapping (path="deleteToDo")
 	public String deleteToDo(int id) {
 		dao.isDeleted(id);
-		return "redirect:todoList";
+		return "redirect:todolist";
 	}
 
 	

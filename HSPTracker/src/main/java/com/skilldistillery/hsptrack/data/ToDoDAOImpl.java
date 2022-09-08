@@ -50,7 +50,6 @@ public class ToDoDAOImpl implements ToDoDAO {
 	@Override
 	public ToDo findById(int id) {
 		ToDo todo = em.find(ToDo.class, id);
-		System.out.println(todo.getContent());
 		return todo;
 	}
 

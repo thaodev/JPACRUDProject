@@ -29,9 +29,8 @@ body {
 								class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
 								<div class="col-12">
 									<div class="form-outline">
-										<input type="text" id="form1" class="form-control"
+										<input type="text" id="form1" class="form-control" name="content"
 											placeholder="Enter a task here" />
-										<!-- <label class="form-label" for="form1">Enter a task here</label> -->
 									</div>
 								</div>
 
