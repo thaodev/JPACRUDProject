@@ -14,6 +14,7 @@
 	crossorigin="anonymous">
 
 <style>
+
 .buttonRight {
 	position: absolute;
 	bottom: 0;
@@ -40,6 +41,7 @@
 </style>
 </head>
 <body>
+<section class="vh-100 bg-warning">
 	<div class="container-fluid">
 
 		<div class="row">
@@ -60,9 +62,9 @@
 
 		<c:forEach var="post" items="${posts}">
 			<div
-				class="border rounded overflow-hidden flex-md-row mb-4 shadow-sm">
+				class="border rounded overflow-hidden flex-md-row mb-4 px-1 shadow-sm bg-white">
 				<p>
-					Title: <strong>${post.title}</strong> <span
+					<strong>${post.title}</strong> <span
 						style="font-size: 10px; font-style: italic">${post.createAt}</span>
 				</p>
 				<br>
@@ -70,22 +72,7 @@
 					<c:out value="${post.content}" />
 				</p>
 			</div>
-			<%-- 			<div class="row mt-0 mb-5">
-				<c:url var="updateLink" value="updatePost">
-					<c:param name="id" value="${post.id}" />
-				</c:url>
-				<!-- construct an update link with schedule id  -->
-				<c:url var="deleteLink" value="deletePost">
-					<c:param name="id" value="${post.id}" />
-				</c:url>
-				<div class="col-10"></div>
-				<div class="col float-left">
-					<a type="button" class="btn btn-danger btn-sm" href="${updateLink}">Edit</a>
-					<a type="button" class="btn btn-secondary btn-sm"
-						href="${deleteLink}">Delete</a>
-				</div>
 
-			</div> --%>
 			<div class="box mb-5">
 				<div class="buttonRight">
 					<button type="submit" onclick="location.href='editPost.do?id=${post.id}'">Edit</button>
@@ -112,18 +99,18 @@
 			</div>
 
 			<div class="text-center m-1">
-				<button type="submit" class="btn btn-warning" data-toggle="button"
+				<button type="submit" class="btn btn-info" data-toggle="button"
 					aria-pressed="false">Submit</button>
 			</div>
 		</form>
 	</div>
-
 	<!-- JavaScript Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
 		crossorigin="anonymous"></script>
 
+</section>
 
 </body>
 </html>
