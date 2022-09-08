@@ -38,4 +38,18 @@ public class PostController {
 		return "postList";
 	}
 
+	@RequestMapping(path="editPost.do" )
+	public String showFormToEdit(int id, Model model) {
+		Post postToEdit = dao.findById(id);
+		System.out.println("id of the post to edit: " + id);
+		model.addAttribute("post", postToEdit);
+		return "editPost";
+	}
+	@RequestMapping(path="editPost" )
+	public String editPost(Post post, Model model) {
+		System.out.println("Post needs to be update" + post.getTitle());
+		dao.updatePost(post);
+		
+		return "redirect:postlist.do";
+	}
 }

@@ -9,6 +9,8 @@ public interface PostDAO {
 	List<Post> findByKeyword(String keyword);
 	List<Post> findAll();
 	Post addPost(Post post);
+	boolean updatePost(Post post);
+	boolean deletePost(int postId);
 
 	
 }

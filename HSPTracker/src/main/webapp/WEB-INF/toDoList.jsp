@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Post List</title>
+<title>ToDo List</title>
 <jsp:include page="../bootstrapHead.jsp"></jsp:include>
 <style>
 body {
@@ -61,7 +61,7 @@ body {
 												<option>Completed</option>
 										</select></td>
 										<td>
-											<button type="submit" class="btn btn-danger">Delete</button>
+											<button type="submit" class="btn btn-sm btn-danger">Delete</button>
 										</td>
 									</tr>
 

@@ -19,7 +19,7 @@ public class PostDAOImpl implements PostDAO {
 	
 	@Override
 	public Post findById(int id) {
-		Post post = em.find(Post.class, 1);
+		Post post = em.find(Post.class, id);
 		return post;
 	}
 	@Override
@@ -50,6 +50,29 @@ public class PostDAOImpl implements PostDAO {
 		
 		em.flush();
 		return post;
+	}
+	
+	@Override
+	public boolean updatePost(Post post) {
+		boolean isUpdated = false;
+		Post updatedPost = em.find(Post.class, post.getId());
+
+		updatedPost.setTitle(post.getTitle());
+		updatedPost.setContent(post.getContent());
+
+		if (updatedPost != null) {
+			isUpdated = true;
+		}
+
+		return isUpdated;
+
+	}
+	@Override
+	public boolean deletePost(int postId) {
+		Post postToDelete = em.find(Post.class, postId);
+		em.remove(postToDelete);
+		boolean isDeleted = !em.contains(postToDelete);
+		return isDeleted;
 	}
 
 }
