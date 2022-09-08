@@ -52,4 +52,12 @@ public class PostController {
 		
 		return "redirect:postlist.do";
 	}
+	@RequestMapping(path="deletePost.do" )
+	public String deletePost(int id) {
+		Post post = dao.findById(id);
+		System.out.println("Post needs to be delete" + post.getTitle());
+		dao.deletePost(id);
+		
+		return "redirect:postlist.do";
+	}
 }
